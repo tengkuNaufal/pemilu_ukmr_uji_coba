@@ -1,5 +1,5 @@
 async function fetchCandidates() {
-  const res = await fetch('http://localhost:3000/api/candidates', {
+  const res = await fetch('/api/candidates', {
     headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
   });
   if (!res.ok) return alert('Gagal ambil kandidat');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const candidate_id = e.target.dataset.id;
     if (!confirm('Yakin memilih kandidat ini?')) return;
 
-    const res = await fetch('http://localhost:3000/api/vote', {
+    const res = await fetch('/api/vote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
